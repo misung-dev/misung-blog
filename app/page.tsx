@@ -1,34 +1,48 @@
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
+import { PostCard } from '@/components/features/blog/PostCard';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import TagSection from './_components/TagSection';
+import ProfileSection from './_components/ProfileSection';
 import Link from 'next/link';
-import { Github, Instagram, Linkedin, Mail } from 'lucide-react';
-import Image from 'next/image';
-import { Button } from '@/components/ui/button';
 
 const mockTags = [
-  { name: '전체', count: 20 },
-  { name: 'HTML', count: 10 },
-  { name: 'CSS', count: 5 },
-  { name: 'JavaScript', count: 3 },
-  { name: 'React', count: 3 },
-  { name: 'Next.js', count: 3 },
+  { id: '1', name: '전체', count: 20 },
+  { id: '2', name: 'HTML', count: 10 },
+  { id: '3', name: 'CSS', count: 5 },
+  { id: '4', name: 'JavaScript', count: 3 },
+  { id: '5', name: 'React', count: 3 },
+  { id: '6', name: 'Next.js', count: 3 },
 ];
 
-const socialLinks = [
+const mockPosts = [
   {
-    icon: Github,
-    href: 'https://github.com/misung-dev',
+    id: '1',
+    title: 'Next.js 13으로 블로그 만들기',
+    description: 'Next.js 13과 Notion API를 활용하여 개인 블로그를 만드는 방법을 알아봅니다.',
+    coverImage: 'https://picsum.photos/800/400',
+    tags: [
+      { id: '1', name: 'Next.js', count: 1 },
+      { id: '2', name: 'React', count: 1 },
+    ],
+    authors: '짐코딩',
+    date: '2024-02-01',
   },
   {
-    icon: Linkedin,
-    href: 'https://www.linkedin.com/in/misungdev',
-  },
-  {
-    icon: Mail,
-    href: 'mailto:misung.dev@gmail.com',
-  },
-  {
-    icon: Instagram,
-    href: 'https://www.instagram.com/ryumnii',
+    id: '2',
+    title: 'TypeScript 기초 다지기',
+    description: 'TypeScript의 기본 문법과 실전에서 자주 사용되는 패턴들을 살펴봅니다.',
+    coverImage: 'https://picsum.photos/800/401',
+    tags: [
+      { id: '3', name: 'TypeScript', count: 1 },
+      { id: '4', name: 'JavaScript', count: 1 },
+    ],
+    authors: '짐코딩',
+    date: '2024-01-15',
   },
 ];
 
@@ -36,93 +50,35 @@ export default function Home() {
   return (
     <div className="container py-8">
       <div className="grid grid-cols-[200px_1fr_220px] gap-6">
-        {/* 좌측 사이드바 */}
         <aside>
-          <Card>
-            <CardHeader>
-              <CardTitle>태그 목록</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-col gap-3">
-                {mockTags.map((tag) => (
-                  <Link href={`?tag=${tag.name}`} key={tag.name}>
-                    <div className="hover:bg-muted-foreground/10 text-muted-foreground flex items-center justify-between rounded-md p-1.5 text-sm transition-colors">
-                      <span>{tag.name}</span>
-                      <span>{tag.count}</span>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+          <TagSection tags={mockTags} />
         </aside>
-        <div className="space-y-8">
-          {/* 섹션 제목 */}
-          <h2 className="text-3xl font-bold tracking-tight">블로그 목록</h2>
 
-          {/* 블로그 카드 그리드 */}
+        <div className="space-y-8">
+          <div className="flex items-center justify-between">
+            <h2 className="text-3xl font-bold tracking-tight">블로그 목록</h2>
+            <Select defaultValue="latest">
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="정렬 방식 선택" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="latest">최신순</SelectItem>
+                <SelectItem value="oldest">오래된순</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
           <div className="grid gap-4">
-            {/* 블로그 카드 반복 */}
-            {[1, 2, 3].map((i) => (
-              <Link href={`/blog/${i}`} key={i}>
-                <Card key={i}>
-                  <CardHeader>
-                    <CardTitle>블로그 제목 {i}</CardTitle>
-                    <CardDescription>
-                      이것은 블로그 포스트에 대한 간단한 설명입니다. 여러 줄의 텍스트가 있을 수
-                      있습니다.
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
+            {mockPosts.map((post) => (
+              <Link href={`/blog/${post.id}`} key={post.id}>
+                <PostCard key={post.id} post={post} />
               </Link>
             ))}
           </div>
         </div>
 
-        {/* 우측 사이드바 */}
         <aside>
-          <Card>
-            <CardContent className="pt-6">
-              <div className="space-y-4">
-                <div className="flex justify-center">
-                  <div className="bg-muted rounded-full p-2">
-                    <div className="h-36 w-36 overflow-hidden rounded-full">
-                      <Image
-                        src="/images/profile-light.png"
-                        alt="프로필 이미지"
-                        width={144}
-                        height={144}
-                        className="object-cover"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="text-center">
-                  <h3 className="text-lg font-bold">류미성</h3>
-                  <p className="text-primary text-sm">Frontend Developer</p>
-                </div>
-
-                <div className="flex justify-center gap-2">
-                  {socialLinks.map((item, index) => (
-                    <Button
-                      key={index}
-                      variant="ghost"
-                      className="bg-primary/10"
-                      size="icon"
-                      asChild
-                    >
-                      <a href={item.href} target="_blank" rel="noopener noreferrer">
-                        <item.icon className="h-4 w-4" />
-                      </a>
-                    </Button>
-                  ))}
-                </div>
-
-                <p className="bg-primary/10 rounded p-2 text-center text-sm">Keep Coding 🛼</p>
-              </div>
-            </CardContent>
-          </Card>
+          <ProfileSection />
         </aside>
       </div>
     </div>
