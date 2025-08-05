@@ -2,12 +2,12 @@
 
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Post } from '@/types/blog';
+
 import { format } from 'date-fns';
 import { ko } from 'date-fns/locale';
 import { Calendar } from 'lucide-react';
 import Image from 'next/image';
-import { Post } from '@/types/blog';
-import { formatDate } from '@/lib/date';
 
 interface PostCardProps {
   post: Post;

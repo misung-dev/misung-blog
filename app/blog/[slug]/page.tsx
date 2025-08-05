@@ -1,18 +1,17 @@
 import Link from 'next/link';
 import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
-import { ChevronLeft, ChevronRight, CalendarDays } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { getPostBySlug } from '@/lib/notion';
 import { formatDate } from '@/lib/date';
+
+import { ChevronLeft, ChevronRight, CalendarDays } from 'lucide-react';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
 import rehypeSanitize from 'rehype-sanitize';
 import rehypePrettyCode from 'rehype-pretty-code';
-import rehypeSlug from 'rehype-slug';
-
-import { compile } from '@mdx-js/mdx';
 import withSlugs from 'rehype-slug';
+import { compile } from '@mdx-js/mdx';
 import withToc from '@stefanprobst/rehype-extract-toc';
 import withTocExport from '@stefanprobst/rehype-extract-toc/mdx';
 
@@ -22,8 +21,6 @@ interface TocEntry {
   id?: string;
   children?: Array<TocEntry>;
 }
-
-type Toc = Array<TocEntry>;
 
 function TableOfContentsLink({ item }: { item: TocEntry }) {
   return (
@@ -65,7 +62,6 @@ export default async function BlogPost({ params }: BlogPostProps) {
     ],
   });
 
-  console.log(post);
   return (
     <div className="containerpy-12">
       <div className="grid grid-cols-[240px_1fr_240px] gap-8">
@@ -101,7 +97,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
               options={{
                 mdxOptions: {
                   remarkPlugins: [remarkGfm],
-                  rehypePlugins: [rehypeSlug, rehypeSanitize, rehypePrettyCode],
+                  rehypePlugins: [withSlugs, rehypeSanitize, rehypePrettyCode],
                 },
               }}
             />

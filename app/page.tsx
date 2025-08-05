@@ -6,10 +6,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { getPublishedPosts, getTags } from '@/lib/notion';
 import TagSection from './_components/TagSection';
 import ProfileSection from './_components/ProfileSection';
 import Link from 'next/link';
-import { getPublishedPosts, getTags } from '@/lib/notion';
 
 interface HomeProps {
   searchParams: Promise<{

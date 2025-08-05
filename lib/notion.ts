@@ -1,9 +1,7 @@
 import { Client } from '@notionhq/client';
+import type { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 import type { Post, TagFilterItem } from '@/types/blog';
-import type {
-  PageObjectResponse,
-  PersonUserObjectResponse,
-} from '@notionhq/client/build/src/api-endpoints';
+
 import { NotionToMarkdown } from 'notion-to-md';
 
 export const notion = new Client({
@@ -28,7 +26,6 @@ function getPostMetadata(page: PageObjectResponse): Post {
     }
   };
 
-  console.log(properties);
   return {
     id: page.id,
     title: properties.이름.type === 'title' ? (properties.이름.title[0]?.plain_text ?? '') : '',
@@ -118,8 +115,6 @@ export const getPublishedPosts = async (tag?: string): Promise<Post[]> => {
       },
     ],
   });
-
-  console.log(response);
 
   return response.results
     .filter((page): page is PageObjectResponse => 'properties' in page)

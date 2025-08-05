@@ -1,7 +1,7 @@
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import Link from 'next/link';
-import { TagFilterItem } from '@/types/blog';
 import { cn } from '@/lib/utils';
+import { TagFilterItem } from '@/types/blog';
+import Link from 'next/link';
 
 interface TagSectionProps {
   tags: TagFilterItem[];
