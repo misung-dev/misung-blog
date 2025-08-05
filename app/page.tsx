@@ -22,7 +22,7 @@ export default async function Home({ searchParams }: HomeProps) {
 
   return (
     <div className="container py-8">
-      <div className="grid grid-cols-[200px_1fr_220px] gap-6">
+      <div className="grid grid-cols-[180px_1fr_180px] gap-6">
         <aside>
           <TagSection tags={tags} selectedTag={selectedTag} />
         </aside>

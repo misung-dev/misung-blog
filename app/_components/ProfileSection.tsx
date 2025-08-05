@@ -1,7 +1,7 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
-import { Github, Linkedin, Mail, Instagram } from 'lucide-react';
+import { Github, Linkedin, Instagram } from 'lucide-react';
 
 const socialLinks = [
   {
@@ -12,10 +12,7 @@ const socialLinks = [
     icon: Linkedin,
     href: 'https://www.linkedin.com/in/misungdev',
   },
-  {
-    icon: Mail,
-    href: 'mailto:misung.dev@gmail.com',
-  },
+
   {
     icon: Instagram,
     href: 'https://www.instagram.com/ryumnii',
@@ -25,11 +22,11 @@ const socialLinks = [
 export default function ProfileSection() {
   return (
     <Card>
-      <CardContent className="pt-6">
+      <CardContent>
         <div className="space-y-4">
           <div className="flex justify-center">
             <div className="bg-muted rounded-full p-2">
-              <div className="h-36 w-36 overflow-hidden rounded-full">
+              <div className="h-34 w-34 overflow-hidden rounded-full">
                 <Image
                   src="/images/profile-light.png"
                   alt="프로필 이미지"
