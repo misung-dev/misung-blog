@@ -40,7 +40,7 @@ export default function ProfileSection() {
 
           <div className="text-center">
             <h3 className="text-lg font-bold">류미성</h3>
-            <p className="text-primary text-sm">Frontend Developer</p>
+            <p className="text-muted-foreground text-sm">Frontend Developer</p>
           </div>
 
           <div className="flex justify-center gap-2">
