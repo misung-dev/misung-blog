@@ -11,11 +11,11 @@ interface TagSectionProps {
 export default function TagSection({ tags, selectedTag }: TagSectionProps) {
   return (
     <Card>
-      <CardHeader>
+      <CardHeader className="gap-0 px-4">
         <CardTitle>태그 목록</CardTitle>
       </CardHeader>
-      <CardContent>
-        <div className="flex flex-col gap-3">
+      <CardContent className="px-4">
+        <div className="flex flex-col gap-2">
           {tags.map((tag) => (
             <Link href={`?tag=${tag.name}`} key={tag.name}>
               <div
