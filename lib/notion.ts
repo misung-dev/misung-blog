@@ -9,7 +9,7 @@ export const notion = new Client({
   auth: process.env.NOTION_TOKEN,
 });
 
-export const getPublishedPosts = async () => {
+export const getPublishedPosts = async (tag?: string): Promise<Post[]> => {
   const response = await notion.databases.query({
     database_id: process.env.NOTION_DATABASE_ID!,
     filter: {
@@ -17,6 +17,24 @@ export const getPublishedPosts = async () => {
       select: {
         equals: 'Published',
       },
+      and: [
+        {
+          property: 'Status',
+          select: {
+            equals: 'Published',
+          },
+        },
+        ...(tag && tag !== '전체'
+          ? [
+              {
+                property: 'Tags',
+                multi_select: {
+                  contains: tag,
+                },
+              },
+            ]
+          : []),
+      ],
     },
     sorts: [
       {
