@@ -1,8 +1,6 @@
 # 블로그
 
-<br/>
-
-## 기술 스택
+### ⚙️ 기술 스택
 
 - 코어: `Next.js`
 - 스타일링: `Tailwind CSS`, `shadcn/ui`
@@ -10,13 +8,15 @@
 
 <br/>
 
-## 라이브러리
+### 📚 라이브러리
 
-- `date-fns`
-- `notion-to-md`
+- `date-fns`: 날짜 및 시간 관련 유틸리티 함수들을 제공하는 라이브러리
+- `notion-to-md`: Notion 페이지를 Markdown 형식으로 변환해주는 라이브러리
 
-## 플러그인
+<br/>
+
+### 🧩 플러그인
 
 - `rehype-sanitize`: HTML에서 잠재적으로 위험한 태그나 속성을 제거해 보안을 강화
 - `rehype-pretty-code`: Markdown이나 MDX에서 코드 블록에 문법 하이라이팅과 깔끔한 스타일을 적용
-- `@stefanprobst/rehype-extract-toc`: 문서의 heading을 기반으로 목차(Table of Contents)를 추출
+- `@stefanprobst/rehype-extract-toc`: 문서의 heading을 기반으로 목차 추출
