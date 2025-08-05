@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
-import { CalendarDays, Clock, User } from 'lucide-react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, CalendarDays } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { getPostBySlug } from '@/lib/notion';
+import { formatDate } from '@/lib/date';
 
 interface TableOfContentsItem {
   id: string;
@@ -108,9 +109,15 @@ function TableOfContentsLink({ item }: { item: TableOfContentsItem }) {
 }
 
 interface BlogPostProps {
-  tableOfContents: TableOfContentsItem[];
+  params: Promise<{
+    slug: string;
+  }>;
 }
-export default function BlogPost() {
+export default async function BlogPost({ params }: BlogPostProps) {
+  const { slug } = await params;
+  const { post, markdown } = await getPostBySlug(slug);
+
+  console.log(post);
   return (
     <div className="containerpy-12">
       <div className="grid grid-cols-[240px_1fr_240px] gap-8">
@@ -120,19 +127,19 @@ export default function BlogPost() {
           {/* 블로그 헤더 */}
           <div className="space-y-4">
             <div className="space-y-2">
-              <Badge>프론트엔드</Badge>
-              <h1 className="text-4xl font-bold">Next.js와 Shadcn UI로 블로그 만들기</h1>
+              <div className="flex gap-2">
+                {post.tags?.map((tag) => (
+                  <Badge key={tag}>{tag}</Badge>
+                ))}
+              </div>
+              <h1 className="text-4xl font-bold">{post.title}</h1>
             </div>
 
             {/* 메타 정보 */}
             <div className="text-muted-foreground flex gap-4 text-sm">
               <div className="flex items-center gap-1">
-                <User className="h-4 w-4" />
-                <span>홍길동</span>
-              </div>
-              <div className="flex items-center gap-1">
                 <CalendarDays className="h-4 w-4" />
-                <span>2024년 3월 15일</span>
+                <span>{formatDate(post.date)}</span>
               </div>
             </div>
           </div>
