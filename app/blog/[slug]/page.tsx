@@ -8,6 +8,7 @@ import { formatDate } from '@/lib/date';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
 import rehypeSanitize from 'rehype-sanitize';
+import rehypePrettyCode from 'rehype-pretty-code';
 
 interface TableOfContentsItem {
   id: string;
@@ -156,7 +157,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
               options={{
                 mdxOptions: {
                   remarkPlugins: [remarkGfm],
-                  rehypePlugins: [rehypeSanitize],
+                  rehypePlugins: [rehypeSanitize, rehypePrettyCode],
                 },
               }}
             />
