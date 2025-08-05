@@ -9,25 +9,16 @@ import {
 import TagSection from './_components/TagSection';
 import ProfileSection from './_components/ProfileSection';
 import Link from 'next/link';
-import { getPublishedPosts } from '@/lib/notion';
-
-const mockTags = [
-  { id: '1', name: '전체', count: 20 },
-  { id: '2', name: 'HTML', count: 10 },
-  { id: '3', name: 'CSS', count: 5 },
-  { id: '4', name: 'JavaScript', count: 3 },
-  { id: '5', name: 'React', count: 3 },
-  { id: '6', name: 'Next.js', count: 3 },
-];
+import { getPublishedPosts, getTags } from '@/lib/notion';
 
 export default async function Home() {
-  const posts = await getPublishedPosts();
+  const [posts, tags] = await Promise.all([getPublishedPosts(), getTags()]);
 
   return (
     <div className="container py-8">
       <div className="grid grid-cols-[200px_1fr_220px] gap-6">
         <aside>
-          <TagSection tags={mockTags} />
+          <TagSection tags={tags} />
         </aside>
 
         <div className="space-y-8">
