@@ -9,10 +9,7 @@ export default function Header() {
         </Link>
         <nav className="ml-auto flex items-center gap-4">
           <Link href="/" className="hover:text-primary font-medium">
-            홈
-          </Link>
-          <Link href="blog" className="hover:text-primary font-medium">
-            블로그
+            블로그 홈
           </Link>
           <Link href="/about" className="hover:text-primary font-medium">
             소개

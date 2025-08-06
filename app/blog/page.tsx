@@ -1,8 +1,4 @@
-import PostList from '@/components/features/blog/PostList';
-import { getPublishedPosts, getTags } from '@/lib/notion';
-import ProfileSection from '../_components/ProfileSection';
-import TagSection from '../_components/TagSection';
-import HeaderSection from '../_components/HeaderSection';
+import { redirect } from 'next/navigation';
 
 interface BlogProps {
   searchParams: Promise<{
@@ -13,35 +9,12 @@ interface BlogProps {
 
 export default async function Blog({ searchParams }: BlogProps) {
   const { tag, sort } = await searchParams;
-  const selectedTag = tag || '전체';
-  const selectedSort = sort || 'latest';
 
-  const [postsResponse, tags] = await Promise.all([
-    getPublishedPosts({
-      tag: selectedTag === '전체' ? undefined : selectedTag,
-      sort: selectedSort,
-    }),
-    getTags(),
-  ]);
+  // 블로그 페이지 접근 시 홈으로 리다이렉트 (쿼리 파라미터 유지)
+  const params = new URLSearchParams();
+  if (tag) params.set('tag', tag);
+  if (sort) params.set('sort', sort);
 
-  const posts = postsResponse.posts;
-
-  return (
-    <div className="container py-8">
-      <div className="grid grid-cols-[180px_1fr_180px] gap-6">
-        <aside>
-          <TagSection tags={tags} selectedTag={selectedTag} />
-        </aside>
-
-        <div className="space-y-8">
-          <HeaderSection selectedTag={selectedTag} />
-          <PostList posts={posts} />
-        </div>
-
-        <aside>
-          <ProfileSection />
-        </aside>
-      </div>
-    </div>
-  );
+  const redirectUrl = params.toString() ? `/?${params.toString()}` : '/';
+  redirect(redirectUrl);
 }

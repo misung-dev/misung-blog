@@ -97,9 +97,9 @@ export interface GetPublishedPostsResponse {
 export const getPublishedPosts = async ({
   tag = '전체',
   sort = 'latest',
-  pageSize = 2,
+  pageSize = 20,
   startCursor,
-} = {}): Promise<GetPublishedPostsResponse> => {
+}: GetPublishedPostsParams = {}): Promise<GetPublishedPostsResponse> => {
   const response = await notion.databases.query({
     database_id: process.env.NOTION_DATABASE_ID!,
     filter: {

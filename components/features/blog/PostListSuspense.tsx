@@ -52,7 +52,7 @@ export default function PostList({ postsPromise }: PostListProps) {
 
   return (
     <div className="space-y-6">
-      <div className="grid gap-4">
+      <div className="grid auto-rows-fr grid-cols-1 gap-4 md:grid-cols-2">
         {allPosts.map((post, index) => (
           <Link href={`/blog/${post.slug}`} key={post.id}>
             <PostCard post={post} isFirst={index === 0} />
@@ -64,7 +64,7 @@ export default function PostList({ postsPromise }: PostListProps) {
           <Button
             variant="outline"
             size="lg"
-            className="w-full"
+            className="w-full cursor-pointer"
             onClick={handleLoadMore}
             disabled={isFetchingNextPage}
           >
