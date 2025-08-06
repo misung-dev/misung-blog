@@ -16,10 +16,15 @@ export default async function Blog({ searchParams }: BlogProps) {
   const selectedTag = tag || '전체';
   const selectedSort = sort || 'latest';
 
-  const [posts, tags] = await Promise.all([
-    getPublishedPosts(selectedTag, selectedSort),
+  const [postsResponse, tags] = await Promise.all([
+    getPublishedPosts({
+      tag: selectedTag === '전체' ? undefined : selectedTag,
+      sort: selectedSort,
+    }),
     getTags(),
   ]);
+
+  const posts = postsResponse.posts;
 
   return (
     <div className="container py-8">
