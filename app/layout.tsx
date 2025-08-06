@@ -17,6 +17,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'misung.dev',
   description: '미숑이의 블로그',
+  icons: {
+    icon: '/images/code-tag.png',
+    shortcut: '/images/code-tag.png',
+    apple: '/images/code-tag.png',
+  },
   openGraph: {
     title: 'misung.dev',
     description: '미숑이의 블로그',
