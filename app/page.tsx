@@ -5,6 +5,8 @@ import HeaderSection from './_components/HeaderSection';
 import PostListSuspense from '@/components/features/blog/PostListSuspense';
 import { Suspense } from 'react';
 import TagSectionClient from './_components/TagSection.client';
+import TagSectionSkeleton from './_components/TagSectionSkeleton';
+import PostListSkeleton from '../components/features/blog/PostListSkeleton';
 
 interface HomeProps {
   searchParams: Promise<{
@@ -24,7 +26,7 @@ export default async function Home({ searchParams }: HomeProps) {
     <div className="container py-8">
       <div className="grid grid-cols-[180px_1fr_180px] gap-6">
         <aside>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<TagSectionSkeleton />}>
             <TagSectionClient tags={tags} selectedTag={selectedTag} />
           </Suspense>
         </aside>
@@ -32,7 +34,7 @@ export default async function Home({ searchParams }: HomeProps) {
         <div className="space-y-8">
           <HeaderSection selectedTag={selectedTag} />
           {/* <PostList posts={posts} /> */}
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<PostListSkeleton />}>
             <PostListSuspense selectedTag={selectedTag} selectedSort={selectedSort} />
           </Suspense>
         </div>
