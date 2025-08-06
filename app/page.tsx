@@ -1,8 +1,10 @@
-import PostList from '@/components/features/blog/PostList';
-import { getPublishedPosts, getTags } from '@/lib/notion';
+import { getTags } from '@/lib/notion';
 import TagSection from './_components/TagSection';
 import ProfileSection from './_components/ProfileSection';
 import HeaderSection from './_components/HeaderSection';
+import PostListSuspense from '@/components/features/blog/PostListSuspense';
+import { Suspense } from 'react';
+import TagSectionClient from './_components/TagSection.client';
 
 interface HomeProps {
   searchParams: Promise<{
@@ -16,21 +18,23 @@ export default async function Home({ searchParams }: HomeProps) {
   const selectedTag = tag || '전체';
   const selectedSort = sort || 'latest';
 
-  const [posts, tags] = await Promise.all([
-    getPublishedPosts(selectedTag, selectedSort),
-    getTags(),
-  ]);
+  const tags = getTags();
 
   return (
     <div className="container py-8">
       <div className="grid grid-cols-[180px_1fr_180px] gap-6">
         <aside>
-          <TagSection tags={tags} selectedTag={selectedTag} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <TagSectionClient tags={tags} selectedTag={selectedTag} />
+          </Suspense>
         </aside>
 
         <div className="space-y-8">
           <HeaderSection selectedTag={selectedTag} />
-          <PostList posts={posts} />
+          {/* <PostList posts={posts} /> */}
+          <Suspense fallback={<div>Loading...</div>}>
+            <PostListSuspense selectedTag={selectedTag} selectedSort={selectedSort} />
+          </Suspense>
         </div>
 
         <aside>
