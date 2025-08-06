@@ -3,7 +3,7 @@ import { Separator } from '@/components/ui/separator';
 
 export default function BlogPostLoading() {
   return (
-    <div className="container py-12">
+    <div className="container">
       <div className="grid grid-cols-[1fr_240px] gap-8">
         <section>
           {/* 블로그 헤더 스켈레톤 */}
