@@ -149,9 +149,22 @@ export const getTags = async (): Promise<TagFilterItem[]> => {
     count: posts.length,
   });
 
-  // 태그 이름 기준으로 정렬 ("전체" 태그는 항상 첫 번째에 위치하도록 제외)
+  // "전체" 태그는 항상 첫 번째에 위치하도록 정렬
   const [allTag, ...restTags] = tags;
-  const sortedTags = restTags.sort((a, b) => a.name.localeCompare(b.name));
+
+  // 한글을 먼저, 영어를 나중에 정렬
+  const sortedTags = restTags.sort((a, b) => {
+    const aIsKorean = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/.test(a.name);
+    const bIsKorean = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/.test(b.name);
+
+    // 둘 다 한글이거나 둘 다 영어인 경우 알파벳 순으로 정렬
+    if (aIsKorean === bIsKorean) {
+      return a.name.localeCompare(b.name);
+    }
+
+    // 한글이 영어보다 앞에 오도록
+    return aIsKorean ? -1 : 1;
+  });
 
   return [allTag, ...sortedTags];
 };
