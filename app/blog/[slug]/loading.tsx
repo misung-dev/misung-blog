@@ -4,7 +4,7 @@ import { Separator } from '@/components/ui/separator';
 export default function BlogPostLoading() {
   return (
     <div className="container">
-      <div className="grid grid-cols-[1fr_240px] gap-8">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-[1fr_240px] md:gap-8">
         <section>
           {/* 블로그 헤더 스켈레톤 */}
           <div className="space-y-4">

@@ -28,21 +28,21 @@ export default async function Home({ searchParams }: HomeProps) {
 
   return (
     <div className="container py-8">
-      <div className="grid grid-cols-[180px_1fr_180px] gap-6">
-        <aside>
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-[180px_1fr_180px]">
+        <aside className="order-2 md:order-none">
           <Suspense fallback={<TagSectionSkeleton />}>
             <TagSectionClient tags={tags} selectedTag={selectedTag} />
           </Suspense>
         </aside>
 
-        <div className="space-y-8">
+        <div className="order-3 space-y-8 md:order-none">
           <HeaderSection selectedTag={selectedTag} />
           <Suspense fallback={<PostListSkeleton />}>
             <PostListSuspense postsPromise={postsPromise} />
           </Suspense>
         </div>
 
-        <aside>
+        <aside className="order-1 flex flex-col gap-6 md:order-none">
           <ProfileSection />
         </aside>
       </div>
