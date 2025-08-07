@@ -2,8 +2,8 @@
 
 import Link from 'next/link';
 import { PostCard } from '@/components/features/blog/PostCard';
-import { Button } from '@/components/ui/button';
 import { GetPublishedPostsResponse } from '@/lib/notion';
+import { useInfiniteScroll } from '@/lib/hooks/useInfiniteScroll';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { useSearchParams } from 'next/navigation';
 import { use } from 'react';
@@ -42,11 +42,12 @@ export default function PostList({ postsPromise }: PostListProps) {
     },
   });
 
-  const handleLoadMore = () => {
-    if (hasNextPage && !isFetchingNextPage) {
-      fetchNextPage();
-    }
-  };
+  const loadMoreRef = useInfiniteScroll({
+    hasNextPage: hasNextPage ?? false,
+    isFetchingNextPage,
+    fetchNextPage,
+    rootMargin: '200px',
+  });
 
   const allPosts = data?.pages.flatMap((page) => page.posts) ?? [];
 
@@ -59,19 +60,15 @@ export default function PostList({ postsPromise }: PostListProps) {
           </Link>
         ))}
       </div>
-      {hasNextPage && (
-        <div>
-          <Button
-            variant="outline"
-            size="lg"
-            className="w-full cursor-pointer"
-            onClick={handleLoadMore}
-            disabled={isFetchingNextPage}
-          >
-            {isFetchingNextPage ? '로딩중...' : '더보기'}
-          </Button>
-        </div>
-      )}
+
+      <div ref={loadMoreRef} className="flex h-10 items-center justify-center">
+        {isFetchingNextPage && (
+          <div className="text-muted-foreground text-sm">게시글을 불러오는 중...</div>
+        )}
+        {!hasNextPage && allPosts.length > 0 && (
+          <div className="text-muted-foreground text-sm">모든 게시글을 확인했어요 👋</div>
+        )}
+      </div>
     </div>
   );
 }
