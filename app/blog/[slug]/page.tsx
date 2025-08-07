@@ -2,11 +2,10 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
-import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { getPostBySlug } from '@/lib/notion';
 import { formatDate } from '@/lib/date';
 
-import { ChevronLeft, ChevronRight, CalendarDays } from 'lucide-react';
+import { CalendarDays } from 'lucide-react';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
 import rehypeSanitize from 'rehype-sanitize';
@@ -68,7 +67,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
   });
 
   return (
-    <div className="container">
+    <div className="container mb-16">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-[1fr_240px] md:gap-8">
         <section>
           {/* 블로그 헤더 */}
@@ -117,40 +116,6 @@ export default async function BlogPost({ params }: BlogPostProps) {
               }}
             />
           </div>
-
-          <Separator className="my-16" />
-
-          {/* 이전/다음 포스트 네비게이션 */}
-          <nav className="grid grid-cols-2 gap-8">
-            <Link href="/blog/previous-post">
-              <Card className="group hover:bg-muted/50 transition-colors">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-base font-medium">
-                    <ChevronLeft className="h-4 w-4" />
-                    <span>시작하기</span>
-                  </CardTitle>
-                  <CardDescription className="line-clamp-2">
-                    Next.js를 시작하는 방법부터 프로젝트 구조, 기본 설정까지 상세히 알아봅니다.
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            </Link>
-
-            <Link href="/blog/next-post" className="text-right">
-              <Card className="group hover:bg-muted/50 transition-colors">
-                <CardHeader>
-                  <CardTitle className="flex items-center justify-end gap-2 text-base font-medium">
-                    <span>심화 가이드</span>
-                    <ChevronRight className="h-4 w-4" />
-                  </CardTitle>
-                  <CardDescription className="line-clamp-2">
-                    Next.js의 고급 기능들을 활용하여 더 나은 웹 애플리케이션을 만드는 방법을
-                    소개합니다.
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            </Link>
-          </nav>
         </section>
 
         <aside className="relative hidden md:block">

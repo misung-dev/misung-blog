@@ -3,7 +3,7 @@ import { Separator } from '@/components/ui/separator';
 
 export default function BlogPostLoading() {
   return (
-    <div className="container">
+    <div className="container mb-16">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-[1fr_240px] md:gap-8">
         <section>
           {/* 블로그 헤더 스켈레톤 */}
@@ -72,27 +72,6 @@ export default function BlogPostLoading() {
               <Skeleton className="h-4 w-3/5" />
             </div>
           </div>
-
-          <Separator className="my-16" />
-
-          {/* 이전/다음 포스트 네비게이션 스켈레톤 */}
-          <nav className="grid grid-cols-2 gap-8">
-            <div className="rounded-lg border p-6">
-              <div className="space-y-2">
-                <Skeleton className="h-5 w-24" />
-                <Skeleton className="h-4 w-full" />
-                <Skeleton className="h-4 w-3/4" />
-              </div>
-            </div>
-
-            <div className="rounded-lg border p-6">
-              <div className="space-y-2">
-                <Skeleton className="h-5 w-28" />
-                <Skeleton className="h-4 w-full" />
-                <Skeleton className="h-4 w-4/5" />
-              </div>
-            </div>
-          </nav>
         </section>
 
         {/* 사이드바 목차 스켈레톤 */}
