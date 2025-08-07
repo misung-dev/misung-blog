@@ -1,7 +1,17 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: '페이지를 찾을 수 없습니다',
+  description: '요청하신 페이지가 존재하지 않거나 이동되었을 수 있습니다.',
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default function NotFound() {
   return (

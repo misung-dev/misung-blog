@@ -17,11 +17,27 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'misung.dev',
+  title: {
+    template: '%s | misung.dev',
+    default: 'misung.dev',
+  },
   description: '미숑이의 블로그',
+  keywords: ['Next.js', '프론트엔드', '웹개발', '코딩', '프로그래밍', '리액트'],
+  authors: [{ name: 'misung', url: 'https://github.com/misung-dev' }],
+  creator: 'misung',
+  publisher: 'misung',
+  formatDetection: {
+    email: false,
+    telephone: false,
+    address: false,
+  },
+  metadataBase: new URL('https://misung.dev'),
+  alternates: {
+    canonical: '/',
+  },
   icons: {
-    icon: '/images/code-tag.png',
-    shortcut: '/images/code-tag.png',
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
     apple: '/images/code-tag.png',
   },
   openGraph: {
