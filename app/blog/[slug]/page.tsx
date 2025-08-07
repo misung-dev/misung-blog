@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -50,6 +51,10 @@ interface BlogPostProps {
 export default async function BlogPost({ params }: BlogPostProps) {
   const { slug } = await params;
   const { post, markdown } = await getPostBySlug(slug);
+
+  if (!post) {
+    return notFound();
+  }
 
   const { data } = await compile(markdown, {
     rehypePlugins: [
