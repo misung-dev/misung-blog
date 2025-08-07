@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ThemeToggle } from '@/components/theme/ThemeToggle';
 
 export default function Header() {
   return (
@@ -15,6 +16,9 @@ export default function Header() {
             소개
           </Link>
         </nav>
+        <div className="ml-2">
+          <ThemeToggle />
+        </div>
       </div>
     </header>
   );

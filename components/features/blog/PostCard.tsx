@@ -14,7 +14,7 @@ interface PostCardProps {
 
 export function PostCard({ post, isFirst = false }: PostCardProps) {
   return (
-    <Card className="group bg-card/50 border-border/40 hover:border-primary/20 flex h-full flex-col gap-0 overflow-hidden border py-0 backdrop-blur-sm transition-all duration-300">
+    <Card className="group bg-card/50 hover:border-primary/20 flex h-full flex-col gap-0 overflow-hidden border py-0 backdrop-blur-sm transition-all duration-300">
       {post.coverImage && (
         <div className="relative aspect-[2/1] overflow-hidden">
           <div className="from-background/20 absolute inset-0 z-10 bg-gradient-to-t to-transparent" />
