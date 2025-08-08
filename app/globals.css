@@ -128,6 +128,12 @@
     @apply bg-background text-foreground;
     overflow-x: hidden;
   }
+
+  /* Radix UI Select 컴포넌트가 body에 적용하는 스크롤 락 스타일을 무효화 */
+  body[data-scroll-locked] {
+    margin-right: 0px !important;
+    overflow: visible !important;
+  }
 }
 
 .container {
