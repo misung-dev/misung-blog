@@ -4,7 +4,7 @@ import profileImage from '@/public/images/profile-image.png';
 import Image from 'next/image';
 import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
-import { Briefcase, Github, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink } from 'lucide-react';
 
 export default function About() {
   return (

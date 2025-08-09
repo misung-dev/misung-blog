@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 import { User, Code2, Briefcase } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { cn } from '@/lib/utils';
 
 interface AboutLayoutProps {
   children: ReactNode;
