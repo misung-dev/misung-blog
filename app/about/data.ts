@@ -18,29 +18,75 @@ export const skills = [
 export interface ProjectHighlight {
   text: string;
   links?: Array<{
-    slug: string;
     label: string;
+    slug: string;
   }>;
 }
 
 export interface Project {
   title: string;
-  description: string;
   period: string;
   techStack: string[];
   highlights: ProjectHighlight[];
-  links?: {
+  projectLinks?: {
     github?: string;
     website?: string;
-    demo?: string;
   };
 }
 
+export const internships: Project[] = [
+  {
+    title: '(주) 구름',
+    period: '2024.12.23 ~ 2025.06.30 (6개월)',
+    techStack: [
+      'React',
+      'JavaScript',
+      'TypeScript',
+      'Next.js',
+      'Node.js',
+      'Python',
+      'ChatGPT API',
+      'Socket.io',
+      'Storybook',
+    ],
+    highlights: [
+      {
+        text: "'ChatGPT API'를 활용해 맞춤형 '오늘의 운세'를 자동 전송하는 Slack 봇 구현 및 런칭",
+        links: [
+          {
+            label: '회고',
+            slug: 'slack-fortune-bot-1',
+          },
+          {
+            label: '이슈 해결',
+            slug: 'slack-fortune-bot-2',
+          },
+        ],
+      },
+      {
+        text: 'Zoom 모니터링 자동화 프로그램 개발 및 런칭',
+        links: [
+          {
+            label: '사용성 개선1',
+            slug: 'monitoring-automation-3',
+          },
+          {
+            label: '사용성 개선2',
+            slug: 'monitoring-automation-4',
+          },
+        ],
+      },
+      {
+        text: 'Arkain 서비스 개발에 참여 등',
+      },
+    ],
+  },
+];
+
 export const projects: Project[] = [
   {
-    title: '스노로즈',
-    description: '숙명여자대학교 재학생, 졸업생을 위한 커뮤니티 웹 서비스',
-    period: '2024.06 - 현재',
+    title: '숙명인을 위한 커뮤니티, 스노로즈	',
+    period: '2024.06 ~ 현재',
     techStack: ['React', 'JavaScript', 'Cloudflare', 'React-Query'],
     highlights: [
       {
@@ -68,15 +114,14 @@ export const projects: Project[] = [
         ],
       },
     ],
-    links: {
+    projectLinks: {
       github: 'https://github.com/snorose/snorose-front-react',
       website: 'https://www.snorose.com/',
     },
   },
   {
-    title: '체크메이트',
-    description: '내 손 안에 간편한 행사 관리 시스템 (졸업작품 프로젝트)',
-    period: '2024.05 - 2024.09 (5개월)',
+    title: '내 손 안에 간편한 행사 관리 시스템, 체크메이트',
+    period: '2024.05 ~ 2024.09 (5개월)',
     techStack: ['React', 'JavaScript', 'Styled-components', 'Recoil', 'npm', 'Vercel'],
     highlights: [
       {
@@ -95,15 +140,14 @@ export const projects: Project[] = [
         text: '행사 목록 페이지 및 검색 기능 구현',
       },
     ],
-    links: {
+    projectLinks: {
       github: 'https://github.com/CheckMate-sookmyung',
       website: 'https://check-mate-sookmyung-check-mate-sookmyung.vercel.app/',
     },
   },
   {
-    title: '개인 블로그',
-    description: 'Notion API와 Next.js를 활용한 개인 블로그',
-    period: '2025.08 - 현재',
+    title: 'Notion API를 활용한 개인 블로그',
+    period: '2025.07 ~ 2025.08 (1개월)',
     techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Notion API'],
     highlights: [
       {
@@ -113,7 +157,7 @@ export const projects: Project[] = [
         text: '무한 스크롤 구현',
       },
     ],
-    links: {
+    projectLinks: {
       github: 'https://github.com/misung-dev/misung-blog',
       website: 'https://misung.dev',
     },
