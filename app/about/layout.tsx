@@ -9,9 +9,8 @@ interface AboutLayoutProps {
 export default function AboutLayout({ children }: AboutLayoutProps) {
   return (
     <div className="container py-8">
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-[180px_1fr]">
-        {/* 왼쪽 사이드바 - 목차 */}
-        <aside className="order-2 md:order-none">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-[200px_1fr]">
+        <aside className="sticky top-[var(--sticky-top)] h-fit">
           <Card>
             <CardHeader className="gap-0 px-4">
               <CardTitle>목차</CardTitle>
@@ -42,7 +41,7 @@ export default function AboutLayout({ children }: AboutLayoutProps) {
         </aside>
 
         {/* 메인 콘텐츠 */}
-        <main className="order-1 md:order-none">{children}</main>
+        <main>{children}</main>
       </div>
     </div>
   );
