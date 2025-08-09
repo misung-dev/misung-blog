@@ -67,70 +67,56 @@ export default async function BlogPost({ params }: BlogPostProps) {
   });
 
   return (
-    <div className="container mb-16">
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-[1fr_240px] md:gap-8">
-        <section>
-          {/* 블로그 헤더 */}
-          <div className="space-y-4">
-            <div className="space-y-2">
-              <div className="flex gap-2">
-                {post.tags?.map((tag) => (
-                  <Badge key={tag}>{tag}</Badge>
-                ))}
-              </div>
-              <h1 className="text-3xl font-bold md:text-4xl">{post.title}</h1>
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-[180px_1fr] md:gap-8">
+      <aside className="relative md:block">
+        <div className="sticky top-[var(--sticky-top)]">
+          <div className="bg-muted/60 space-y-4 rounded-lg p-6 backdrop-blur-sm">
+            <h3 className="text-lg font-semibold">목차</h3>
+            <nav className="space-y-3 text-sm">
+              {data?.toc?.map((item) => (
+                <TableOfContentsLink key={item.id} item={item} />
+              ))}
+            </nav>
+          </div>
+        </div>
+      </aside>
+
+      <section>
+        {/* 블로그 헤더 */}
+        <div className="space-y-4">
+          <div className="space-y-2">
+            <div className="flex gap-2">
+              {post.tags?.map((tag) => (
+                <Badge key={tag}>{tag}</Badge>
+              ))}
             </div>
-
-            {/* 메타 정보 */}
-            <div className="text-muted-foreground flex gap-4 text-sm">
-              <div className="flex items-center gap-1">
-                <CalendarDays className="h-4 w-4" />
-                <span>{formatDate(post.date)}</span>
-              </div>
-            </div>
+            <h1 className="text-3xl font-bold md:text-4xl">{post.title}</h1>
           </div>
 
-          <Separator className="my-8" />
-
-          {/* 모바일 전용 목차 */}
-          <div className="sticky top-[var(--sticky-top)] mb-6 md:hidden">
-            <details className="bg-muted/60 rounded-lg p-4 backdrop-blur-sm">
-              <summary className="cursor-pointer text-lg font-semibold">목차</summary>
-              <nav className="mt-3 space-y-3 text-sm">
-                {data?.toc?.map((item) => (
-                  <TableOfContentsLink key={item.id} item={item} />
-                ))}
-              </nav>
-            </details>
-          </div>
-
-          {/* 블로그 본문 */}
-          <div className="prose prose-slate dark:prose-invert prose-headings:scroll-mt-[var(--header-height)] max-w-none">
-            <MDXRemote
-              source={markdown}
-              options={{
-                mdxOptions: {
-                  remarkPlugins: [remarkGfm],
-                  rehypePlugins: [withSlugs, rehypeSanitize, rehypePrettyCode],
-                },
-              }}
-            />
-          </div>
-        </section>
-
-        <aside className="relative hidden md:block">
-          <div className="sticky top-[var(--sticky-top)]">
-            <div className="bg-muted/60 space-y-4 rounded-lg p-6 backdrop-blur-sm">
-              <h3 className="text-lg font-semibold">목차</h3>
-              <nav className="space-y-3 text-sm">
-                {data?.toc?.map((item) => (
-                  <TableOfContentsLink key={item.id} item={item} />
-                ))}
-              </nav>
+          {/* 메타 정보 */}
+          <div className="text-muted-foreground flex gap-4 text-sm">
+            <div className="flex items-center gap-1">
+              <CalendarDays className="h-4 w-4" />
+              <span>{formatDate(post.date)}</span>
             </div>
           </div>
-        </aside>
-      </div>
+        </div>
+
+        <Separator className="my-8" />
+
+        {/* 블로그 본문 */}
+        <div className="prose prose-slate dark:prose-invert prose-headings:scroll-mt-[var(--header-height)] max-w-none">
+          <MDXRemote
+            source={markdown}
+            options={{
+              mdxOptions: {
+                remarkPlugins: [remarkGfm],
+                rehypePlugins: [withSlugs, rehypeSanitize, rehypePrettyCode],
+              },
+            }}
+          />
+        </div>
+      </section>
     </div>
   );
 }
