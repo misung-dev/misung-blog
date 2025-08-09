@@ -10,7 +10,7 @@ export default function AboutLayout({ children }: AboutLayoutProps) {
   return (
     <div className="container py-8">
       <div className="grid grid-cols-1 gap-6 md:grid-cols-[200px_1fr]">
-        <aside className="sticky top-[var(--sticky-top)] h-fit">
+        <aside className="md:sticky md:top-[var(--sticky-top)] md:h-fit">
           <Card>
             <CardHeader className="gap-0 px-4">
               <CardTitle>목차</CardTitle>
