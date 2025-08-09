@@ -9,10 +9,13 @@ import { Github, ExternalLink } from 'lucide-react';
 export default function About() {
   return (
     <div className="space-y-8">
-      <h1 className="mb-5 text-3xl font-bold tracking-tight">
+      <h1
+        id="intro"
+        className="mb-5 scroll-mt-[var(--header-height)] text-3xl font-bold tracking-tight"
+      >
         안녕하세요, {profile.name}입니다! 👋
       </h1>
-      <section id="intro" className="flex gap-4">
+      <section className="flex gap-4">
         <div className="from-primary/20 to-primary/10 flex h-24 w-24 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br">
           <Image src={profileImage} alt="profile" className="h-full w-full object-cover" />
         </div>
@@ -26,15 +29,14 @@ export default function About() {
 
       <Separator />
 
-      <section id="skills" className="space-y-6">
-        <div>
-          <h2 className="mb-2 flex items-center gap-2 text-3xl font-bold tracking-tight">
-            기술 스택
-          </h2>
-          <p className="text-muted-foreground">현재 사용하고 있는 주요 기술들입니다.</p>
-        </div>
-
-        <div className="space-y-6">
+      <section id="skills" className="relative scroll-mt-[var(--header-height)] space-y-6">
+        <div className="sticky top-[var(--sticky-top)] flex flex-col gap-4">
+          <div>
+            <h2 className="mb-2 flex items-center gap-2 text-3xl font-bold tracking-tight">
+              기술 스택
+            </h2>
+            <p className="text-muted-foreground">현재 사용하고 있는 주요 기술들입니다.</p>
+          </div>
           <div className="flex flex-wrap gap-2">
             {skills.map((skill) => (
               <Badge key={skill} variant="secondary" className="text-sm">
@@ -47,7 +49,7 @@ export default function About() {
 
       <Separator />
 
-      <section id="projects" className="space-y-6">
+      <section id="projects" className="scroll-mt-[var(--header-height)] space-y-6">
         <div>
           <h2 className="mb-2 flex items-center gap-2 text-3xl font-bold tracking-tight">
             프로젝트
