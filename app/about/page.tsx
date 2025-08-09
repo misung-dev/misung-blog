@@ -68,7 +68,7 @@ export default function About() {
 
       <Separator />
 
-      <section id="projects" className="scroll-mt-[var(--header-height)] space-y-6">
+      <section id="internships" className="scroll-mt-[var(--header-height)] space-y-6">
         <div>
           <h2 className="mb-2 flex items-center gap-2 text-3xl font-bold tracking-tight">
             인턴 이력
