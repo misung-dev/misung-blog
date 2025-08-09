@@ -9,21 +9,40 @@ import { Github, ExternalLink } from 'lucide-react';
 export default function About() {
   return (
     <div className="space-y-8">
-      <h1
-        id="intro"
-        className="mb-5 scroll-mt-[var(--header-height)] text-3xl font-bold tracking-tight"
-      >
-        안녕하세요, {profile.name}입니다! 👋
-      </h1>
-      <section className="flex gap-4">
-        <div className="from-primary/20 to-primary/10 flex h-24 w-24 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br">
-          <Image src={profileImage} alt="profile" className="h-full w-full object-cover" />
+      <section className="flex flex-col gap-4">
+        <h1
+          id="intro"
+          className="scroll-mt-[var(--header-height)] text-3xl font-bold tracking-tight"
+        >
+          안녕하세요, <span className="text-primary">{profile.name}</span>입니다! 👋
+        </h1>
+        <div className="flex items-center gap-4 md:flex-row">
+          <div className="rom-primary/20 to-primary/10 flex h-24 w-24 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br p-1 backdrop-blur-sm">
+            <Image
+              src={profileImage}
+              alt="profile"
+              className="h-full w-full rounded-full object-cover"
+            />
+          </div>
+          <div className="flex flex-1 flex-col gap-4">
+            <p className="text-muted-foreground text-sm leading-relaxed break-words whitespace-pre-line md:text-lg">
+              {profile.description}
+            </p>
+          </div>
         </div>
-        <div className="flex flex-1 flex-col gap-4">
-          <p className="text-muted-foreground text-lg leading-relaxed break-words whitespace-pre-line">
-            {profile.description}
-          </p>
-          <ContactSection />
+      </section>
+
+      <Separator />
+
+      <section id="links" className="relative scroll-mt-[var(--header-height)] space-y-6">
+        <div className="sticky top-[var(--sticky-top)] flex flex-col gap-4">
+          <div>
+            <h2 className="mb-2 flex items-center gap-2 text-3xl font-bold tracking-tight">링크</h2>
+            <p className="text-muted-foreground">저와 관련한 링크들입니다.</p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <ContactSection />
+          </div>
         </div>
       </section>
 

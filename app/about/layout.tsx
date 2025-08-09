@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { User, Code2, Briefcase } from 'lucide-react';
+import { User, Code2, Briefcase, Link } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 
 interface AboutLayoutProps {
@@ -21,6 +21,12 @@ export default function AboutLayout({ children }: AboutLayoutProps) {
                   <div className="text-muted-foreground hover:bg-muted-foreground/10 flex items-center gap-2 rounded-md p-1.5 text-sm transition-colors">
                     <User className="h-4 w-4" />
                     <span>소개</span>
+                  </div>
+                </a>
+                <a href="#links">
+                  <div className="text-muted-foreground hover:bg-muted-foreground/10 flex items-center gap-2 rounded-md p-1.5 text-sm transition-colors">
+                    <Link className="h-4 w-4" />
+                    <span>링크</span>
                   </div>
                 </a>
                 <a href="#skills">

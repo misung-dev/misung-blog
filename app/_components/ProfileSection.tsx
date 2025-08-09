@@ -26,7 +26,7 @@ export default function ProfileSection() {
         <div className="space-y-4">
           <div className="flex justify-center">
             <div className="bg-muted rounded-full p-2">
-              <div className="h-34 w-34 overflow-hidden rounded-full">
+              <div className="h-34 w-34 overflow-hidden rounded-full backdrop-blur-sm">
                 <Image
                   src="/images/profile-light.png"
                   alt="프로필 이미지"
