@@ -1,4 +1,4 @@
-import { profile, skills, projects } from './constants';
+import { profile, skills, projects } from './data';
 import ContactSection from '../_components/ContactSection';
 import profileImage from '@/public/images/profile-image.png';
 import Image from 'next/image';
