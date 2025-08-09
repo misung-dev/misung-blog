@@ -17,10 +17,10 @@ export const skills = [
 
 export interface ProjectHighlight {
   text: string;
-  link?: {
+  links?: Array<{
     slug: string;
     label: string;
-  };
+  }>;
 }
 
 export interface Project {
@@ -51,13 +51,21 @@ export const projects: Project[] = [
       },
       {
         text: '테스트맵을 기반으로 다양한 기기와 사용 환경에서 알파·베타 테스트를 진행하며 서비스 안정화에 기여',
+        links: [
+          {
+            slug: 'snorose-renewal-review',
+            label: '회고',
+          },
+        ],
       },
       {
         text: '리뉴얼 만족도 조사 결과, 리뉴얼 후 만족도 2.98 → 4.80 상승',
-        link: {
-          slug: 'snorose-renewal-satisfaction-survey',
-          label: '회고',
-        },
+        links: [
+          {
+            slug: 'snorose-renewal-satisfaction-survey',
+            label: '회고',
+          },
+        ],
       },
     ],
     links: {

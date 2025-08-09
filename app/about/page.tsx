@@ -103,22 +103,31 @@ export default function About() {
                   </div>
 
                   <div>
-                    <h4 className="mb-2 text-base font-semibold">주요 특징</h4>
+                    <h4 className="mb-2 text-base font-semibold">주요 내용</h4>
                     <ul className="space-y-2">
                       {project.highlights.map((highlight, idx) => (
-                        <li key={idx} className="flex items-center gap-2">
-                          <span className="text-primary h-1.5 w-1.5 shrink-0 rounded-full bg-current" />
-                          <span className="text-muted-foreground">
+                        <li key={idx} className="flex gap-2">
+                          <span className="text-primary mt-[0.1rem] h-1.5 w-1.5 shrink-0 rounded-full bg-current" />
+                          <span className="text-muted-foreground -mt-2">
                             {highlight.text}
-                            {highlight.link && (
-                              <a
-                                href={`https://www.misung.dev/blog/${highlight.link.slug}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-primary ml-2 hover:underline"
-                              >
-                                {highlight.link.label}
-                              </a>
+                            {highlight.links && highlight.links.length > 0 && (
+                              <span className="text-primary ml-1">
+                                (
+                                {highlight.links.map((link, linkIndex) => (
+                                  <span key={link.slug}>
+                                    {linkIndex > 0 && ', '}
+                                    <a
+                                      href={`https://www.misung.dev/blog/${link.slug}`}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="hover:underline"
+                                    >
+                                      {link.label}
+                                    </a>
+                                  </span>
+                                ))}
+                                )
+                              </span>
                             )}
                           </span>
                         </li>
