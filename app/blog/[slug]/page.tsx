@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { getPostBySlug } from '@/lib/notion';
 import { formatDate } from '@/lib/date';
 
-import { CalendarDays } from 'lucide-react';
+import { UserRoundPen, CalendarDays } from 'lucide-react';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
 import rehypeSanitize from 'rehype-sanitize';
@@ -95,6 +95,10 @@ export default async function BlogPost({ params }: BlogPostProps) {
 
           {/* 메타 정보 */}
           <div className="text-muted-foreground flex gap-4 text-sm">
+            <div className="flex items-center gap-1">
+              <UserRoundPen className="h-4 w-4" />
+              <span>류미성</span>
+            </div>
             <div className="flex items-center gap-1">
               <CalendarDays className="h-4 w-4" />
               <span>{formatDate(post.date)}</span>
