@@ -1,10 +1,6 @@
 import { Mail, Github, Linkedin, Instagram } from 'lucide-react';
 
 const contact = {
-  email: {
-    icon: Mail,
-    url: 'misung.dev@gmail.com',
-  },
   github: {
     icon: Github,
     url: 'https://github.com/misung-dev',
@@ -16,6 +12,10 @@ const contact = {
   instagram: {
     icon: Instagram,
     url: 'https://www.instagram.com/ryumnii/',
+  },
+  email: {
+    icon: Mail,
+    url: 'misung.dev@gmail.com',
   },
 };
 
@@ -54,10 +54,10 @@ export default function ContactSection() {
 
 function getDisplayName(key: string): string {
   const displayNames: Record<string, string> = {
-    email: 'Email',
     github: 'GitHub',
     linkedin: 'LinkedIn',
     instagram: 'Instagram',
+    email: 'Email',
   };
 
   return displayNames[key] || key;
