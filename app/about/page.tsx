@@ -108,7 +108,19 @@ export default function About() {
                       {project.highlights.map((highlight, idx) => (
                         <li key={idx} className="flex items-center gap-2">
                           <span className="text-primary h-1.5 w-1.5 shrink-0 rounded-full bg-current" />
-                          <span className="text-muted-foreground">{highlight}</span>
+                          <span className="text-muted-foreground">
+                            {highlight.text}
+                            {highlight.link && (
+                              <a
+                                href={`https://www.misung.dev/blog/${highlight.link.slug}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-primary ml-2 hover:underline"
+                              >
+                                {highlight.link.label}
+                              </a>
+                            )}
+                          </span>
                         </li>
                       ))}
                     </ul>
