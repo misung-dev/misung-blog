@@ -12,7 +12,7 @@ export default function About() {
       <section className="flex flex-col gap-4">
         <h1
           id="intro"
-          className="scroll-mt-[var(--header-height)] text-3xl font-bold tracking-tight"
+          className="scroll-mt-[var(--section-top-gap)] text-3xl font-bold tracking-tight"
         >
           안녕하세요, <span className="text-primary">{profile.name}</span>입니다! 👋
         </h1>
@@ -34,7 +34,7 @@ export default function About() {
 
       <Separator />
 
-      <section id="links" className="relative scroll-mt-[var(--header-height)] space-y-6">
+      <section id="links" className="relative scroll-mt-[var(--section-top-gap)] space-y-6">
         <div className="sticky top-[var(--sticky-top)] flex flex-col gap-4">
           <div>
             <h2 className="mb-2 flex items-center gap-2 text-3xl font-bold tracking-tight">링크</h2>
@@ -48,7 +48,7 @@ export default function About() {
 
       <Separator />
 
-      <section id="skills" className="relative scroll-mt-[var(--header-height)] space-y-6">
+      <section id="skills" className="relative scroll-mt-[var(--section-top-gap)] space-y-6">
         <div className="sticky top-[var(--sticky-top)] flex flex-col gap-4">
           <div>
             <h2 className="mb-2 flex items-center gap-2 text-3xl font-bold tracking-tight">
@@ -68,7 +68,7 @@ export default function About() {
 
       <Separator />
 
-      <section id="internships" className="scroll-mt-[var(--header-height)] space-y-6">
+      <section id="internships" className="scroll-mt-[var(--section-top-gap)] space-y-6">
         <div>
           <h2 className="mb-2 flex items-center gap-2 text-3xl font-bold tracking-tight">
             인턴 이력
@@ -171,7 +171,7 @@ export default function About() {
 
       <Separator />
 
-      <section id="projects" className="scroll-mt-[var(--header-height)] space-y-6">
+      <section id="projects" className="scroll-mt-[var(--section-top-gap)] space-y-6">
         <div>
           <h2 className="mb-2 flex items-center gap-2 text-3xl font-bold tracking-tight">
             프로젝트
