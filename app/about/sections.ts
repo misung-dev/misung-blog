@@ -1,6 +1,7 @@
 import ContactSection from '../_components/ContactSection';
 import StackSection from '../_components/StackSection';
 import InternshipSection from '../_components/InternshipSection';
+import ProjectsSection from '../_components/ProjectsSection';
 
 interface Section {
   key: string;
@@ -35,5 +36,13 @@ export const sections = [
     path: '/#internships',
     icon: 'briefcase',
     component: InternshipSection,
+  },
+  {
+    key: 'projects',
+    title: '프로젝트',
+    subTitle: '진행했던 주요 프로젝트들을 소개합니다.',
+    path: '/#projects',
+    icon: 'folder',
+    component: ProjectsSection,
   },
 ];
