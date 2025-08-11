@@ -1,11 +1,11 @@
-import { profile, skills, projects, internships } from './data';
-import ContactSection from '../_components/ContactSection';
+import { profile, projects, internships } from './data';
 import profileImage from '@/public/images/profile-image.png';
 import Image from 'next/image';
 import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
 import { Github, ExternalLink } from 'lucide-react';
-import StackSection from '../_components/StackSection';
+import { sections } from './sections';
+import { Fragment } from 'react';
 
 export default function About() {
   return (
@@ -35,33 +35,28 @@ export default function About() {
 
       <Separator />
 
-      <section id="links" className="relative scroll-mt-[var(--section-top-gap)] space-y-6">
-        <div className="sticky top-[var(--sticky-top)] flex flex-col gap-4">
-          <div>
-            <h2 className="mb-2 flex items-center gap-2 text-3xl font-bold tracking-tight">링크</h2>
-            <p className="text-muted-foreground">저와 관련한 링크들입니다.</p>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            <ContactSection />
-          </div>
-        </div>
-      </section>
+      {sections.map((section) => (
+        <Fragment key={section.key}>
+          <section
+            id={section.key}
+            className="relative scroll-mt-[var(--section-top-gap)] space-y-6"
+          >
+            <div className="sticky top-[var(--sticky-top)] flex flex-col gap-4">
+              <div>
+                <h2 className="mb-2 flex items-center gap-2 text-3xl font-bold tracking-tight">
+                  {section.title}
+                </h2>
+                <p className="text-muted-foreground">{section.subTitle}</p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <section.component />
+              </div>
+            </div>
+          </section>
 
-      <Separator />
-
-      <section id="skills" className="relative scroll-mt-[var(--section-top-gap)] space-y-6">
-        <div className="sticky top-[var(--sticky-top)] flex flex-col gap-4">
-          <div>
-            <h2 className="mb-2 flex items-center gap-2 text-3xl font-bold tracking-tight">
-              기술 스택
-            </h2>
-            <p className="text-muted-foreground">현재 사용하고 있는 주요 기술들입니다.</p>
-          </div>
-          <StackSection />
-        </div>
-      </section>
-
-      <Separator />
+          <Separator />
+        </Fragment>
+      ))}
 
       <section id="internships" className="scroll-mt-[var(--section-top-gap)] space-y-6">
         <div>
