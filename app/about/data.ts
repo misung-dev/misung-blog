@@ -5,15 +5,7 @@ export const profile = {
     '사용자 경험을 끊임없이 고민하는 프론트엔드 개발자입니다.\n직관적인 인터페이스를 구현하고, 재사용성과 효율성을 갖춘 코드를 작성하기 위해 노력합니다.',
 };
 
-export const skills = [
-  'JavaScript',
-  'React',
-  'TypeScript',
-  'Next.js',
-  'emotion',
-  'styled-components',
-  'Tailwind CSS',
-];
+export const skills = ['TypeScript', 'React', 'Next.js', 'styled-components', 'Tailwind CSS'];
 
 export interface ProjectHighlight {
   text: string;
@@ -39,9 +31,9 @@ export const internships: Project[] = [
     title: '(주) 구름',
     period: '2024.12.23 ~ 2025.06.30 (6개월)',
     techStack: [
-      'React',
       'JavaScript',
       'TypeScript',
+      'React',
       'Next.js',
       'Node.js',
       'Python',
@@ -87,7 +79,7 @@ export const projects: Project[] = [
   {
     title: '숙명인을 위한 커뮤니티, 스노로즈	',
     period: '2024.06 ~ 현재',
-    techStack: ['React', 'JavaScript', 'Cloudflare', 'React-Query'],
+    techStack: ['JavaScript', 'React', 'Cloudflare', 'React-Query'],
     highlights: [
       {
         text: 'DAU 2,200명의 사용자를 보유한 커뮤니티 서비스의 차세대 기술 전환(WordPress → React)과 UI/UX 리뉴얼에 참여',
@@ -122,7 +114,7 @@ export const projects: Project[] = [
   {
     title: '내 손 안에 간편한 행사 관리 시스템, 체크메이트',
     period: '2024.05 ~ 2024.09 (5개월)',
-    techStack: ['React', 'JavaScript', 'Styled-components', 'Recoil', 'npm', 'Vercel'],
+    techStack: ['JavaScript', 'React', 'Styled-components', 'Recoil', 'npm', 'Vercel'],
     highlights: [
       {
         text: '참석자 출석체크 페이지 구현 (학번 입력, 서명, 출석 확인 완료 모달)',
@@ -148,7 +140,7 @@ export const projects: Project[] = [
   {
     title: 'Notion API를 활용한 개인 블로그',
     period: '2025.07 ~ 2025.08 (1개월)',
-    techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Notion API'],
+    techStack: ['TypeScript', 'Next.js', 'Tailwind CSS', 'Notion API'],
     highlights: [
       {
         text: 'Notion API 연동을 통한 블로그 구현',
