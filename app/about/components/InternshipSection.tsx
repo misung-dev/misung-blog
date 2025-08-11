@@ -1,4 +1,3 @@
-import { Github, ExternalLink } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { internships } from '../data';
 import ProjectLinkButton from './ProjectLinkButton';
