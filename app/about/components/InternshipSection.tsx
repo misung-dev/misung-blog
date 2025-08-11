@@ -1,27 +1,27 @@
-import { Badge } from '@/components/ui/badge';
 import { Github, ExternalLink } from 'lucide-react';
-import { projects } from '../about/data';
+import { Badge } from '@/components/ui/badge';
+import { internships } from '../data';
 
-export default function ProjectsSection() {
+export default function InternshipSection() {
   return (
     <div className="space-y-8">
-      {projects.map((project, index) => (
+      {internships.map((internship, index) => (
         <div key={index} className="space-y-4">
           <div>
-            <h3 className="mb-2 text-xl font-semibold">{project.title}</h3>
+            <h3 className="mb-2 text-xl font-semibold">{internship.title}</h3>
           </div>
 
           <div className="border-primary/30 border-l-4 pl-6">
             <div className="space-y-4">
               <div>
                 <h4 className="mb-2 text-base font-semibold">기간</h4>
-                <p className="text-muted-foreground">{project.period}</p>
+                <p className="text-muted-foreground">{internship.period}</p>
               </div>
 
               <div>
                 <h4 className="mb-2 text-base font-semibold">기술 스택</h4>
                 <div className="flex flex-wrap gap-2">
-                  {project.techStack.map((tech) => (
+                  {internship.techStack.map((tech) => (
                     <Badge key={tech} variant="outline" className="text-xs">
                       {tech}
                     </Badge>
@@ -32,7 +32,7 @@ export default function ProjectsSection() {
               <div>
                 <h4 className="mb-2 text-base font-semibold">주요 내용</h4>
                 <ul className="space-y-2">
-                  {project.highlights.map((highlight, idx) => (
+                  {internship.highlights.map((highlight, idx) => (
                     <li key={idx} className="flex gap-2">
                       <span className="text-primary mt-[0.1rem] h-1.5 w-1.5 shrink-0 rounded-full bg-current" />
                       <span className="text-muted-foreground -mt-2">
@@ -62,11 +62,11 @@ export default function ProjectsSection() {
                 </ul>
               </div>
 
-              {project.projectLinks && (
+              {internship.projectLinks && (
                 <div className="flex gap-4">
-                  {project.projectLinks.github && (
+                  {internship.projectLinks.github && (
                     <a
-                      href={project.projectLinks.github}
+                      href={internship.projectLinks.github}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-primary inline-flex items-center gap-1 text-sm transition-colors"
@@ -75,9 +75,9 @@ export default function ProjectsSection() {
                       <span>GitHub</span>
                     </a>
                   )}
-                  {project.projectLinks.website && (
+                  {internship.projectLinks.website && (
                     <a
-                      href={project.projectLinks.website}
+                      href={internship.projectLinks.website}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-primary inline-flex items-center gap-1 text-sm transition-colors"

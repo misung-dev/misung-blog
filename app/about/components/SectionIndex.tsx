@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { sections } from '../about/sections';
+import { sections } from '../sections';
 import SectionIcon from './SectionIcon';
 
 export default function SectionIndex() {

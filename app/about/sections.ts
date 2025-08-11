@@ -1,7 +1,7 @@
-import ContactSection from '../_components/ContactSection';
-import StackSection from '../_components/StackSection';
-import InternshipSection from '../_components/InternshipSection';
-import ProjectsSection from '../_components/ProjectsSection';
+import ContactSection from './components/ContactSection';
+import StackSection from './components/StackSection';
+import InternshipSection from './components/InternshipSection';
+import ProjectsSection from './components/ProjectsSection';
 import { Briefcase, Code2, FolderOpen, Link, LucideIcon, User } from 'lucide-react';
 
 interface Section {

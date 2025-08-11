@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import SectionIndex from '../_components/SectionIndex';
+import SectionIndex from './components/SectionIndex';
 
 interface AboutLayoutProps {
   children: ReactNode;
