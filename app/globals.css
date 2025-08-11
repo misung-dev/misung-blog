@@ -144,11 +144,11 @@
 
 /* 코드 블록 스타일링 */
 pre {
-  @apply border-border overflow-x-auto rounded-lg border bg-[#f6f8fa] p-4 dark:bg-[#1e1e1e];
+  @apply border-border overflow-x-auto rounded-lg border bg-[#e9ecef] p-4 dark:bg-[#3a3a3a];
 }
 
 code {
-  @apply rounded bg-[#f6f8fa] px-[0.3rem] py-[0.2rem] font-mono text-sm text-[#24292e] dark:bg-[#1e1e1e] dark:text-[#e6edf3];
+  @apply rounded bg-[#e9ecef] px-[0.2rem] py-[0.1rem] font-mono text-sm text-[#24292e] dark:bg-[#3a3a3a] dark:text-[#e6edf3];
 }
 
 pre > code {
