@@ -36,7 +36,7 @@ export default function About() {
       {sections.map((section, index) => (
         <Fragment key={section.key}>
           <section
-            id={section.key}
+            id={`${section.key}`}
             className="relative scroll-mt-[var(--section-top-gap)] space-y-6"
           >
             <div className="sticky top-[var(--sticky-top)] flex flex-col gap-4">
@@ -47,7 +47,7 @@ export default function About() {
                 <p className="text-muted-foreground">{section.subTitle}</p>
               </div>
               <div className="flex flex-wrap gap-2">
-                <section.component />
+                {section.component && <section.component />}
               </div>
             </div>
           </section>
