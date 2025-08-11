@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
 import { Github, ExternalLink } from 'lucide-react';
+import StackSection from '../_components/StackSection';
 
 export default function About() {
   return (
@@ -56,13 +57,7 @@ export default function About() {
             </h2>
             <p className="text-muted-foreground">현재 사용하고 있는 주요 기술들입니다.</p>
           </div>
-          <div className="flex flex-wrap gap-2">
-            {skills.map((skill) => (
-              <Badge key={skill} variant="secondary" className="text-sm">
-                {skill}
-              </Badge>
-            ))}
-          </div>
+          <StackSection />
         </div>
       </section>
 
