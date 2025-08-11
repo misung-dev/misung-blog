@@ -3,11 +3,11 @@ import { Separator } from '@/components/ui/separator';
 
 export default function BlogPostLoading() {
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-[180px_1fr] md:gap-8">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-[200px_1fr] md:gap-16">
       {/* 사이드바 목차 스켈레톤 */}
       <aside className="relative">
         <div className="sticky top-[var(--sticky-top)]">
-          <div className="bg-muted/60 space-y-4 rounded-lg p-6 backdrop-blur-sm">
+          <div className="bg-muted/60 space-y-4 rounded-lg px-4 py-6 backdrop-blur-sm">
             <Skeleton className="h-6 w-16" />
             <nav className="space-y-3">
               <Skeleton className="h-4 w-32" />

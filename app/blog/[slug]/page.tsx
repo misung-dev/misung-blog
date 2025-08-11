@@ -67,11 +67,11 @@ export default async function BlogPost({ params }: BlogPostProps) {
   });
 
   return (
-    <div className="mb-16 grid grid-cols-1 gap-4 md:grid-cols-[180px_1fr] md:gap-8">
+    <div className="mb-16 grid grid-cols-1 gap-4 md:grid-cols-[200px_1fr] md:gap-16">
       <aside className="relative md:block">
         <div className="sticky top-[var(--sticky-top)]">
-          <div className="bg-muted/60 space-y-4 rounded-lg p-6 backdrop-blur-sm">
-            <h3 className="text-lg font-semibold">목차</h3>
+          <div className="bg-muted/60 space-y-4 rounded-lg px-4 py-6 backdrop-blur-sm">
+            <h3 className="text-base font-semibold">목차</h3>
             <nav className="space-y-3 text-sm">
               {data?.toc?.map((item) => (
                 <TableOfContentsLink key={item.id} item={item} />

@@ -81,7 +81,7 @@
   --header-height: 3.5rem;
   --sticky-offset: 1.5rem;
   --sticky-top: calc(var(--header-height) + var(--sticky-offset));
-  --section-top-gap: calc(var(--header-height) + 2rem);
+  --section-top-gap: calc(var(--header-height) + 1.5rem);
 }
 
 .dark {
