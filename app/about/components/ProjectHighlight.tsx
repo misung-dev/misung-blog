@@ -1,5 +1,11 @@
 import { Project } from '../data';
 
+const BLOG_URL = 'https://www.misung.dev/blog';
+
+function getBlogPostUrl(slug: string) {
+  return `${BLOG_URL}/${encodeURIComponent(slug)}`;
+}
+
 export default function ProjectHighlight({ project }: { project: Project }) {
   return (
     <ul className="space-y-2">
@@ -15,7 +21,7 @@ export default function ProjectHighlight({ project }: { project: Project }) {
                   <span key={link.slug}>
                     {linkIndex > 0 && ', '}
                     <a
-                      href={`https://www.misung.dev/blog/${link.slug}`}
+                      href={getBlogPostUrl(link.slug)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="underline"
