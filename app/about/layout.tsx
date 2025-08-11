@@ -8,7 +8,7 @@ interface AboutLayoutProps {
 export default function AboutLayout({ children }: AboutLayoutProps) {
   return (
     <div className="container py-8">
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-[200px_1fr]">
+      <div className="grid grid-cols-1 gap-16 md:grid-cols-[180px_1fr]">
         <aside className="md:sticky md:top-[var(--sticky-top)] md:h-fit">
           <SectionIndex />
         </aside>

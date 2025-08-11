@@ -84,14 +84,14 @@ export default async function BlogPost({ params }: BlogPostProps) {
       <section>
         {/* 블로그 헤더 */}
         <div className="space-y-4">
-          <div className="space-y-2">
-            <div className="flex gap-2">
-              {post.tags?.map((tag) => (
-                <Badge key={tag}>{tag}</Badge>
-              ))}
-            </div>
-            <h1 className="text-3xl font-bold md:text-4xl">{post.title}</h1>
+          <div className="flex gap-2">
+            {post.tags?.map((tag) => (
+              <Badge key={tag} className="px-2 py-0.5 text-sm font-bold">
+                {tag}
+              </Badge>
+            ))}
           </div>
+          <h1 className="text-3xl font-bold md:text-4xl">{post.title}</h1>
 
           {/* 메타 정보 */}
           <div className="text-muted-foreground flex gap-4 text-sm">

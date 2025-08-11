@@ -24,7 +24,7 @@ export default function About() {
             />
           </div>
           <div className="flex flex-1 flex-col gap-4">
-            <p className="text-muted-foreground text-sm leading-relaxed break-words whitespace-pre-line md:text-lg">
+            <p className="text-muted-foreground text-sm leading-relaxed break-words whitespace-pre-line md:text-base">
               {profile.description}
             </p>
           </div>
@@ -43,7 +43,7 @@ export default function About() {
             >
               <div className="sticky top-[var(--sticky-top)] flex flex-col gap-4">
                 <div>
-                  <h2 className="mb-2 flex items-center gap-2 text-3xl font-bold tracking-tight">
+                  <h2 className="mb-2 flex items-center gap-2 text-2xl font-bold tracking-tight">
                     {section.title}
                   </h2>
                   <p className="text-muted-foreground">{section.subTitle}</p>
