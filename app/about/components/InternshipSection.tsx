@@ -1,6 +1,7 @@
 import { Github, ExternalLink } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { internships } from '../data';
+import ProjectLinkButton from './ProjectLinkButton';
 
 export default function InternshipSection() {
   return (
@@ -62,32 +63,7 @@ export default function InternshipSection() {
                 </ul>
               </div>
 
-              {internship.projectLinks && (
-                <div className="flex gap-4">
-                  {internship.projectLinks.github && (
-                    <a
-                      href={internship.projectLinks.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-primary inline-flex items-center gap-1 text-sm transition-colors"
-                    >
-                      <Github className="h-4 w-4" />
-                      <span>GitHub</span>
-                    </a>
-                  )}
-                  {internship.projectLinks.website && (
-                    <a
-                      href={internship.projectLinks.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-primary inline-flex items-center gap-1 text-sm transition-colors"
-                    >
-                      <ExternalLink className="h-4 w-4" />
-                      <span>웹사이트</span>
-                    </a>
-                  )}
-                </div>
-              )}
+              {internship.projectLinks && <ProjectLinkButton links={internship.projectLinks} />}
             </div>
           </div>
         </div>

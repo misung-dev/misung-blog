@@ -1,6 +1,6 @@
 import { Badge } from '@/components/ui/badge';
-import { Github, ExternalLink } from 'lucide-react';
 import { projects } from '../data';
+import ProjectLinkButton from './ProjectLinkButton';
 
 export default function ProjectsSection() {
   return (
@@ -62,32 +62,7 @@ export default function ProjectsSection() {
                 </ul>
               </div>
 
-              {project.projectLinks && (
-                <div className="flex gap-4">
-                  {project.projectLinks.github && (
-                    <a
-                      href={project.projectLinks.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-primary inline-flex items-center gap-1 text-sm transition-colors"
-                    >
-                      <Github className="h-4 w-4" />
-                      <span>GitHub</span>
-                    </a>
-                  )}
-                  {project.projectLinks.website && (
-                    <a
-                      href={project.projectLinks.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-primary inline-flex items-center gap-1 text-sm transition-colors"
-                    >
-                      <ExternalLink className="h-4 w-4" />
-                      <span>웹사이트</span>
-                    </a>
-                  )}
-                </div>
-              )}
+              {project.projectLinks && <ProjectLinkButton links={project.projectLinks} />}
             </div>
           </div>
         </div>
