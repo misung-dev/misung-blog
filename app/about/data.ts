@@ -120,10 +120,10 @@ export const projects: Project[] = [
         text: '참석자 출석체크 페이지 구현 (학번 입력, 서명, 출석 확인 완료 모달)',
       },
       {
-        text: '관리자 대시보드 페이지 구현',
+        text: '어드민 페이지 내 대시보드 페이지 구현',
       },
       {
-        text: 'chart.js를 사용한 행사별 통계 페이지 구현',
+        text: 'Chart.js를 사용한 행사별 통계 페이지 구현',
       },
       {
         text: 'React 라이브러리 react-signature-canvas를 사용하여 전자 서명 터치 패드 기능 구현',
