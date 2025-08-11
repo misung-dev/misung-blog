@@ -2,7 +2,7 @@ import ContactSection from '../_components/ContactSection';
 import StackSection from '../_components/StackSection';
 import InternshipSection from '../_components/InternshipSection';
 import ProjectsSection from '../_components/ProjectsSection';
-import { Briefcase, Code2, FolderOpen, Link, LucideIcon } from 'lucide-react';
+import { Briefcase, Code2, FolderOpen, Link, LucideIcon, User } from 'lucide-react';
 
 interface Section {
   key: string;
@@ -11,9 +11,19 @@ interface Section {
   path: string;
   icon: LucideIcon;
   component: React.ComponentType | null;
+  isShow: boolean;
 }
 
 export const sections: Section[] = [
+  {
+    key: 'intro',
+    title: '소개',
+    subTitle: null,
+    path: '#intro',
+    icon: User,
+    component: null,
+    isShow: false,
+  },
   {
     key: 'links',
     title: '링크',
@@ -21,6 +31,7 @@ export const sections: Section[] = [
     path: '#links',
     icon: Link,
     component: ContactSection,
+    isShow: true,
   },
   {
     key: 'skills',
@@ -29,6 +40,7 @@ export const sections: Section[] = [
     path: '#skills',
     icon: Code2,
     component: StackSection,
+    isShow: true,
   },
   {
     key: 'internships',
@@ -37,6 +49,7 @@ export const sections: Section[] = [
     path: '#internships',
     icon: Briefcase,
     component: InternshipSection,
+    isShow: true,
   },
   {
     key: 'projects',
@@ -45,5 +58,6 @@ export const sections: Section[] = [
     path: '#projects',
     icon: FolderOpen,
     component: ProjectsSection,
+    isShow: true,
   },
 ];

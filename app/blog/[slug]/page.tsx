@@ -67,7 +67,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
   });
 
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-[180px_1fr] md:gap-8">
+    <div className="mb-16 grid grid-cols-1 gap-4 md:grid-cols-[180px_1fr] md:gap-8">
       <aside className="relative md:block">
         <div className="sticky top-[var(--sticky-top)]">
           <div className="bg-muted/60 space-y-4 rounded-lg p-6 backdrop-blur-sm">

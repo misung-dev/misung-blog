@@ -11,7 +11,7 @@ export default function SectionIndex() {
       <CardContent className="px-4">
         <div className="flex flex-col gap-2">
           {sections.map((section) => (
-            <a href={`/about/${section.path}`} key={section.key}>
+            <a href={section.path} key={section.key}>
               <div className="text-muted-foreground hover:bg-muted-foreground/10 flex items-center gap-2 rounded-md p-1.5 text-sm transition-colors">
                 <SectionIcon icon={section.icon} />
                 <span>{section.title}</span>
