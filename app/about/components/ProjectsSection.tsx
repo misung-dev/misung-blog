@@ -47,7 +47,7 @@ export default function ProjectsSection() {
                                   href={`https://www.misung.dev/blog/${link.slug}`}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="hover:underline"
+                                  className="underline"
                                 >
                                   {link.label}
                                 </a>
