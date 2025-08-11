@@ -1,5 +1,6 @@
 import ContactSection from '../_components/ContactSection';
 import StackSection from '../_components/StackSection';
+import InternshipSection from '../_components/InternshipSection';
 
 interface Section {
   key: string;
@@ -26,5 +27,13 @@ export const sections = [
     path: '/#skills',
     icon: 'code',
     component: StackSection,
+  },
+  {
+    key: 'internships',
+    title: '인턴 이력',
+    subTitle: '인턴십 기간 동안 진행한 주요 프로젝트를 소개합니다.',
+    path: '/#internships',
+    icon: 'briefcase',
+    component: InternshipSection,
   },
 ];
