@@ -141,3 +141,34 @@
   @apply mx-auto max-w-6xl px-4;
   width: 100%;
 }
+
+/* 코드 블록 스타일링 */
+pre {
+  @apply border-border overflow-x-auto rounded-lg border bg-[#f6f8fa] p-4 dark:bg-[#1e1e1e];
+}
+
+code {
+  @apply rounded bg-[#f6f8fa] px-[0.3rem] py-[0.2rem] font-mono text-sm text-[#24292e] dark:bg-[#1e1e1e] dark:text-[#e6edf3];
+}
+
+pre > code {
+  @apply bg-transparent p-0 dark:bg-transparent;
+  counter-reset: line;
+}
+
+[data-line] {
+  @apply border-l-2 border-l-transparent pl-2;
+}
+
+[data-highlighted-line] {
+  @apply border-l-primary bg-primary/5;
+}
+
+[data-highlighted-word] {
+  @apply bg-primary/10 rounded p-1;
+}
+
+.prose :where(code):not(:where([class~='not-prose'] *))::before,
+.prose :where(code):not(:where([class~='not-prose'] *))::after {
+  content: '';
+}

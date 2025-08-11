@@ -115,7 +115,28 @@ export default async function BlogPost({ params }: BlogPostProps) {
             options={{
               mdxOptions: {
                 remarkPlugins: [remarkGfm],
-                rehypePlugins: [withSlugs, rehypeSanitize, rehypePrettyCode],
+                rehypePlugins: [
+                  withSlugs,
+                  rehypeSanitize,
+                  [
+                    rehypePrettyCode,
+                    {
+                      theme: 'github-dark',
+                      onVisitLine(node: { children: Array<{ type: string; value: string }> }) {
+                        // Prevent lines from collapsing in `display: grid` mode
+                        if (node.children.length === 0) {
+                          node.children = [{ type: 'text', value: ' ' }];
+                        }
+                      },
+                      onVisitHighlightedLine(node: { properties: { className: string[] } }) {
+                        node.properties.className.push('line--highlighted');
+                      },
+                      onVisitHighlightedWord(node: { properties: { className: string[] } }) {
+                        node.properties.className = ['word--highlighted'];
+                      },
+                    },
+                  ],
+                ],
               },
             }}
           />
