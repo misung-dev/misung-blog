@@ -1,14 +1,14 @@
 {
   "redirects": [
     {
-      "source": "/(.*)",
+      "source": "/",
       "has": [
         {
           "type": "host",
           "value": "misung.dev"
         }
       ],
-      "destination": "https://www.misung.dev/$1",
+      "destination": "https://www.misung.dev",
       "permanent": true
     }
   ]
