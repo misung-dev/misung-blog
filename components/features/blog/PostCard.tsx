@@ -28,32 +28,33 @@ export function PostCard({ post, isFirst = false }: PostCardProps) {
           />
         </div>
       )}
-      <CardContent className="flex flex-1 flex-col justify-between p-4">
-        <div className="flex-1">
-          <div className="mb-2 flex flex-wrap gap-2">
+
+      <CardContent className="flex flex-1 flex-col justify-between gap-2 p-4 pt-[14px]">
+        <div className="flex flex-1 flex-col gap-2">
+          <div className="flex flex-wrap gap-2">
             {post.tags?.map((tag) => (
               <Badge
                 key={tag}
                 variant="secondary"
-                className="bg-primary/10 text-primary hover:bg-primary/20 font-medium transition-colors"
+                className="bg-primary/10 text-primary text-[13px] font-semibold transition-colors"
               >
                 {tag}
               </Badge>
             ))}
           </div>
-          <h2 className="group-hover:text-primary mb-2 text-xl font-bold tracking-tight transition-colors">
+          <h2 className="group-hover:text-primary text-xl font-bold tracking-tight transition-colors">
             {post.title}
           </h2>
           {post.description && (
-            <p className="text-muted-foreground mt-2 line-clamp-2 leading-relaxed">
+            <p className="text-muted-foreground line-clamp-2 text-sm leading-normal">
               {post.description}
             </p>
           )}
         </div>
-        <div className="text-muted-foreground mt-2 flex items-center gap-x-4 text-sm">
+        <div className="text-muted-foreground flex items-center gap-x-4 text-sm">
           {post.date && (
             <div className="flex items-center gap-1.5">
-              <Calendar className="h-4 w-4" />
+              <Calendar className="h-3.5 w-3.5" />
               <time>{formatDate(post.date)}</time>
             </div>
           )}
