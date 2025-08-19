@@ -109,7 +109,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
         <Separator className="my-8" />
 
         {/* 블로그 본문 */}
-        <div className="prose prose-slate dark:prose-invert prose-headings:scroll-mt-[var(--section-top-gap)] max-w-none">
+        <div className="prose prose-slate dark:prose-invert prose-headings:scroll-mt-[var(--section-top-gap)] prose-hr:border-primary/20 max-w-none">
           <MDXRemote
             source={markdown}
             options={{
