@@ -5,7 +5,16 @@ export const profile = {
     '사용자 경험을 끊임없이 고민하는 프론트엔드 개발자입니다.\n직관적인 인터페이스를 구현하고, 재사용성과 효율성을 갖춘 코드를 작성하기 위해 노력합니다.',
 };
 
-export const skills = ['TypeScript', 'React', 'Next.js', 'styled-components', 'Tailwind CSS'];
+export const skills = [
+  'HTML',
+  'CSS',
+  'JavaScript',
+  'TypeScript',
+  'React',
+  'Next.js',
+  'styled-components',
+  'Tailwind CSS',
+];
 
 export interface ProjectHighlight {
   text: string;
