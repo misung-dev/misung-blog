@@ -151,7 +151,8 @@ pre {
   @apply border-border overflow-x-auto rounded-lg border bg-[#e9ecef] p-4 dark:bg-[#3a3a3a];
 }
 
-code {
+/* 인라인 코드 스타일링 */
+:not(pre) > code {
   font-weight: 600;
   letter-spacing: 0;
   position: relative;
@@ -160,12 +161,16 @@ code {
   background: hsla(45, 9%, 46%, 0.1) !important;
   padding: 0.2em 0.4em !important;
   border-radius: 0.25em;
-  @apply font-mono text-sm transition-colors;
+  @apply font-mono text-sm transition-colors dark:!bg-[#323638];
 }
 
+/* 코드 블록 내부 코드 스타일링 */
 pre > code {
-  @apply bg-transparent p-0 dark:bg-transparent;
+  @apply bg-transparent p-0;
   counter-reset: line;
+  color: var(--primary);
+  font-weight: 600;
+  @apply font-mono text-sm;
 }
 
 [data-line] {
