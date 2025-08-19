@@ -152,7 +152,15 @@ pre {
 }
 
 code {
-  @apply rounded bg-[#e9ecef] px-[0.2rem] py-[0.1rem] font-mono text-sm text-[#24292e] dark:bg-[#3a3a3a] dark:text-[#e6edf3];
+  font-weight: 600;
+  letter-spacing: 0;
+  position: relative;
+  z-index: 0;
+  color: var(--primary);
+  background: hsla(45, 9%, 46%, 0.1) !important;
+  padding: 0.2em 0.4em !important;
+  border-radius: 0.25em;
+  @apply font-mono text-sm transition-colors;
 }
 
 pre > code {
