@@ -86,7 +86,11 @@ export default async function BlogPost({ params }: BlogPostProps) {
         <div className="space-y-4">
           <div className="flex gap-2">
             {post.tags?.map((tag) => (
-              <Badge key={tag} className="px-2 py-0.5 text-sm font-bold">
+              <Badge
+                key={tag}
+                variant="secondary"
+                className="bg-primary/10 text-primary px-2 py-0.5 text-[13px] font-semibold"
+              >
                 {tag}
               </Badge>
             ))}
