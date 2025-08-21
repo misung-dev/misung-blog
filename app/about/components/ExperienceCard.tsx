@@ -9,7 +9,7 @@ interface ExperienceCardProps {
 
 export default function ExperienceCard({ item }: ExperienceCardProps) {
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 pb-4">
       <div>
         <h3 className="mb-2 text-xl font-semibold">{item.title}</h3>
       </div>
@@ -37,7 +37,12 @@ export default function ExperienceCard({ item }: ExperienceCardProps) {
             <ProjectHighlight project={item} />
           </div>
 
-          {item.projectLinks && <ProjectLinkButton links={item.projectLinks} />}
+          {item.projectLinks && (
+            <div>
+              <h4 className="mb-2 text-base font-semibold">프로젝트 링크</h4>
+              <ProjectLinkButton links={item.projectLinks} />
+            </div>
+          )}
         </div>
       </div>
     </div>

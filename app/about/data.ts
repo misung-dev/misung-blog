@@ -52,7 +52,7 @@ export const internships: Project[] = [
     ],
     highlights: [
       {
-        text: "'ChatGPT API'를 활용해 맞춤형 '오늘의 운세'를 자동 전송하는 Slack 봇 구현 및 런칭",
+        text: "'ChatGPT API'를 활용해 개인 맞춤형 '오늘의 운세'를 자동 전송하는 Slack 봇 구현 및 전사 런칭",
         links: [
           {
             label: '회고',
@@ -65,20 +65,26 @@ export const internships: Project[] = [
         ],
       },
       {
-        text: 'Zoom 모니터링 자동화 프로그램 개발 및 런칭',
+        text: '모니터링 자동화를 위한 화면 자동 캡처 및 Google Drive 자동 업로드 프로그램 개발 및 런칭',
         links: [
           {
-            label: '사용성 개선1',
+            label: 'Google Drive 업로드 시간 80% 단축 (회고)',
             slug: 'monitoring-automation-3',
           },
           {
-            label: '사용성 개선2',
+            label: '사용성 개선 (회고)',
             slug: 'monitoring-automation-4',
           },
         ],
       },
       {
-        text: 'Arkain 서비스 개발에 참여 등',
+        text: 'Arkain 서비스 내 보일러플레이트 코드 및 템플릿 개발',
+      },
+      {
+        text: 'Arkain 서비스 내 LLM 사이드챗에 react-virtuoso 가상화를 적용해 가변 높이의 메시지 목록에 렌더링 속도 개선',
+      },
+      {
+        text: "Arkain 서비스 내 소켓 통신 기반의 포함/제외 경로 및 파일명 지정 기능을 적용해 비정상 동작하던 'Replace' 기능 개선",
       },
     ],
   },
@@ -110,6 +116,15 @@ export const projects: Project[] = [
         links: [
           {
             slug: 'snorose-renewal-satisfaction-survey',
+            label: '회고',
+          },
+        ],
+      },
+      {
+        text: '전역 쿼리 무효화로 발생하던 흰 화면 깜빡임을 캐시 갱신 방식으로 개선하여, 댓글 작성/삭제 시 UI가 매끄럽게 반영되도록 개선',
+        links: [
+          {
+            slug: 'comment-flicker-fix',
             label: '회고',
           },
         ],
