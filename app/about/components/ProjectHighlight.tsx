@@ -11,8 +11,8 @@ export default function ProjectHighlight({ project }: { project: Project }) {
     <ul className="space-y-2">
       {project.highlights.map((highlight, index) => (
         <li key={index} className="flex gap-2">
-          <span className="text-primary mt-[0.1rem] h-1.5 w-1.5 shrink-0 rounded-full bg-current" />
-          <span className="text-muted-foreground -mt-2">
+          <span className="text-primary mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-current" />
+          <span className="text-muted-foreground">
             {highlight.text}
             {highlight.links && highlight.links.length > 0 && (
               <span className="text-primary ml-1">

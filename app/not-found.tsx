@@ -22,7 +22,7 @@ export default function NotFound() {
         <p className="text-muted-foreground">
           요청하신 페이지가 존재하지 않거나 이동되었을 수 있습니다.
         </p>
-        <Button asChild className="mt-4">
+        <Button asChild className="mt-4 font-bold">
           <Link href="/" className="flex items-center gap-2">
             <ArrowLeft className="h-4 w-4" />
             홈으로 돌아가기

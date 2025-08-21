@@ -21,7 +21,7 @@ export default function Error({
         <Image src="/images/500.png" alt="500" width={150} height={150} />
         <h1 className="text-2xl font-semibold tracking-tight">오류가 발생했습니다 (500)</h1>
         <p className="text-muted-foreground">오류가 발생했습니다. 잠시 후 다시 시도해주세요.</p>
-        <Button onClick={() => reset()} className="mt-4">
+        <Button onClick={() => reset()} className="mt-4 font-bold">
           다시 시도
         </Button>
       </div>
